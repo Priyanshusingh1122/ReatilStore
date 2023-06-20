@@ -79,19 +79,19 @@ public class ProductController {
     // method for finding products in given price range
     @GetMapping("/products/price/{min}/{max}")
     public List<Product> getProductByPrice(@PathVariable int min, @PathVariable int max) {
-        // iterate through all the products and find products in given price range
-
-    // List<Product> products = repo.findAll();
-    // for (Product product : products) {
-    //     if (product.getPrice() >= min && product.getPrice() <= max) {
-    //         System.out.println(product);
-    //     }
-
-
-
         System.out.println("min: " + min + " max: " + max);
         return repo.findByPriceBetween(min, max);
     }
+
+
+
+
+    // create a method to get products by brand name
+    @GetMapping("/products/brand/{brand}")
+    public List<Product> getProductByBrand(@PathVariable String brand) {
+        return repo.findByBrand(brand);
+    }
+    
 }
 
 

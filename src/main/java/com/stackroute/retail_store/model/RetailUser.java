@@ -13,13 +13,14 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
+
 @Entity
-public class User {
+public class RetailUser {
 
 // create a data model for retail store users with spring boot id field
 // and other fields as name, email, password, role, phone, address
       @Id
-        private String id;
+        private int id;
         private Role role;
         private String name;
         private String email;

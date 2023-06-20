@@ -25,6 +25,9 @@ public interface Repo extends JpaRepository<Product, Integer> {
     public List<Product> findByPriceBetween(int min, int max);
 
 
+    public List<Product> findByBrand(String brand);
+
+
 
     // declare method for findByBrand
 // declare method for findByRating
