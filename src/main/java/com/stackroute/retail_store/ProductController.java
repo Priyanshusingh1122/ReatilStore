@@ -83,6 +83,7 @@ public class ProductController {
         return repo.findByPriceBetween(min, max);
     }
 
+    // end of method for finding products in given price range
 
 
 
