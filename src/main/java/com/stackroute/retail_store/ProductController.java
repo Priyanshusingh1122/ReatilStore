@@ -41,7 +41,7 @@ public class ProductController {
 
 //    // create a method to get product by id
     @GetMapping("/products/{id}")
-    public Optional<Product> getProductById(@PathVariable String id) {
+    public Optional<Product> getProductById(@PathVariable int id) {
         return repo.findById(id);
     }
 //
@@ -55,14 +55,14 @@ public class ProductController {
 
     // create a method to update product
     @PutMapping("/products/{id}")
-    public Product updateProduct(@RequestBody Product product, @PathVariable String id) {
+    public Product updateProduct(@RequestBody Product product, @PathVariable int id) {
         product.setId(id);
         return repo.save(product);
     }
 
   // create a method to delete product
     @DeleteMapping("/products/{id}")
-    public void deleteProduct(@PathVariable String id) {
+    public void deleteProduct(@PathVariable int id) {
         repo.deleteById(id);
     }
 
@@ -73,6 +73,24 @@ public class ProductController {
         return repo.findByCategory(category);
 
 
+    }
+
+
+    // method for finding products in given price range
+    @GetMapping("/products/price/{min}/{max}")
+    public List<Product> getProductByPrice(@PathVariable int min, @PathVariable int max) {
+        // iterate through all the products and find products in given price range
+
+    // List<Product> products = repo.findAll();
+    // for (Product product : products) {
+    //     if (product.getPrice() >= min && product.getPrice() <= max) {
+    //         System.out.println(product);
+    //     }
+
+
+
+        System.out.println("min: " + min + " max: " + max);
+        return repo.findByPriceBetween(min, max);
     }
 }
 

@@ -8,10 +8,24 @@ import java.util.List;
 // Mark as Repository interface
 // StockRepo to extend JpaRepository
 @Repository
-public interface Repo extends JpaRepository<Product, String> {
+public interface Repo extends JpaRepository<Product, Integer> {
 
     // declare method for findByCategory
     public List<Product> findByCategory(String category);
+
+
+    // create a method for finding products in given price range with custom query
+    // write query to find products in given price range
+
+
+    // declare method for findByPriceBetween
+
+
+
+    public List<Product> findByPriceBetween(int min, int max);
+
+
+
     // declare method for findByBrand
 // declare method for findByRating
 // declare method for findByDiscount

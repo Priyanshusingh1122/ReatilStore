@@ -21,9 +21,9 @@ public class Product {
     // use lombok to generate getters and setters
 
     @Id
-    private String id;
+    private int id;
     private String name;
-    private String price;
+    private double price;
     private String description;
     private String imageUrl;
     private String category;
