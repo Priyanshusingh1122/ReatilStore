@@ -19,11 +19,12 @@ public class RetailUser {
 
 // create a data model for retail store users with spring boot id field
 // and other fields as name, email, password, role, phone, address
+
       @Id
-        private int id;
+        private int uid;
         private Role role;
         private String name;
-        private String email;
+        private String emailId;
         private String password;
         private String phone;
         private String address;

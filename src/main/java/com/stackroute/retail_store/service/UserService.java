@@ -14,4 +14,7 @@ public interface UserService {
 
     // declare method for login with email and password
     public String login(String email, String password);
+
+
+    public Iterable<RetailUser> getAllUsers();
 }
