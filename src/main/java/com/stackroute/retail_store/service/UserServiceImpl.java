@@ -6,8 +6,13 @@ import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.stackroute.retail_store.model.Cart;
 import com.stackroute.retail_store.model.RetailUser;
 import com.stackroute.retail_store.repository.UserRepo;
+import com.stackroute.retail_store.repository.CartRepo;
+// import com.stackroute.retail_store.service.CartService;
+
+
 
 
 @Service
@@ -18,10 +23,17 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private JwtToken jwtToken;
+
+    @Autowired
+     private CartRepo cartRepo; 
+
     @Override
     public void registerUser(RetailUser user) {
 // register new user
       RetailUser userR =  userRepo.save(user);
+      cartRepo.save(new Cart());   
         System.out.println(userR.toString());
     }
 
@@ -38,30 +50,17 @@ public class UserServiceImpl implements UserService{
    System.out.println(emailId);
    System.out.println(userRepo.findByEmailId(email).size());
    
-      System.out.println(userRepo.findByName("John Doe").size());
+    //   System.out.println(userRepo.findByName("John Doe").size());
       RetailUser user = userRepo.findByEmailId(email).get(0);
-      System.out.println(user.toString());
+    //   System.out.println(user.toString());
 
    if(user.getEmailId().equals(email) && user.getPassword().equals(password))
    {
-    return " Login Successful";
+
+    return "Login Sucessfull\n"+jwtToken.generateToken(email);
    }
 // //    System.out.println(userRepo.findByName("John Doe").toString());
 return "Login Failed";
-
-    // System.out.println(user.toString());
-//   List<RetailUser> user =  userRepo.findByEmail(email, password);
-
-// //    find user W
-
-//    System.out.println(user.toString()   );
-
-
-//     if(user == null) {
-//         return "Login Failed";
-//     } else {
-//         return "Login Successful";
-//     }
 
 
 
