@@ -1,5 +1,5 @@
 package com.stackroute.retail_store.repository;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import com.stackroute.retail_store.model.Product;
 
@@ -7,8 +7,9 @@ import java.util.List;
 
 // Mark as Repository interface
 // StockRepo to extend JpaRepository
+
 @Repository
-public interface Repo extends JpaRepository<Product, Integer> {
+public interface Repo extends MongoRepository<Product, Integer> {
 
     // declare method for findByCategory
     public List<Product> findByCategory(String category);

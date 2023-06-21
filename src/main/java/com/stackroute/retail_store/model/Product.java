@@ -1,5 +1,6 @@
 package com.stackroute.retail_store.model;
-import jakarta.persistence.Entity;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.Getter;
@@ -13,14 +14,14 @@ import lombok.Setter;
 @Setter
 // Mark as entity
 
-@Entity
+@Document(collection = "Products")  
 public class Product {
     
     // create a data model for retail store products with spring boot id field
     // and other fields as name, price, description, image url, category, brand, rating, discount
     // use lombok to generate getters and setters
 
-    @Id
+    @Id 
     private int id;
     private String name;
     private double price;

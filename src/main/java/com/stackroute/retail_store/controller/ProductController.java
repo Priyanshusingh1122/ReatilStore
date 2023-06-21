@@ -3,15 +3,15 @@
 // Path: src/main/java/com/stackroute/retail_store/controller/Controller.java
 
 
-package com.stackroute.retail_store;
+package com.stackroute.retail_store.controller;
 
 
 import java.util.List;
 import java.util.Optional;
 
 import com.stackroute.retail_store.model.Product;
-
 import com.stackroute.retail_store.repository.Repo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,8 @@
 package com.stackroute.retail_store.model;
 
-import jakarta.persistence.Entity;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.Getter;
@@ -14,7 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 
-@Entity
+@Document(collection = "User")  
+
 public class RetailUser {
 
 // create a data model for retail store users with spring boot id field
@@ -24,6 +27,7 @@ public class RetailUser {
         private int uid;
         private Role role;
         private String name;
+        @Indexed(unique = true)
         private String emailId;
         private String password;
         private String phone;
