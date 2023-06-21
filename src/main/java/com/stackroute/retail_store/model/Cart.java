@@ -20,7 +20,7 @@ public class Cart {
 
     @Id
     private int id;
-    private List<Product> product;
+    private List<CartItem> cartItems;
 
 
 }

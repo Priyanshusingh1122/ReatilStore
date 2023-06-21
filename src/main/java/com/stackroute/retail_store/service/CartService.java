@@ -1,16 +1,28 @@
-// package com.stackroute.retail_store.service;
+package com.stackroute.retail_store.service;
+import org.springframework.stereotype.Service;
+import com.stackroute.retail_store.model.Cart;
+import com.stackroute.retail_store.model.Product;
 
-// import com.stackroute.retail_store.model.Cart;
-// import com.stackroute.retail_store.model.Product;
+@Service
+public interface CartService {
 
-// public interface CartService {
-//     // create methods for adding product to cart, removing product from cart, getting all products from cart, getting total price of products in cart and emptying cart
+    // create a method to add product to cart
+    public Cart addProductToCart(int cartId,Product product);
 
-//     public Cart addProductToCart(Product product, int cartId);
-//     public void removeProductFromCart(int productId, int cartId);
-//     public void emptyCart(int cartId);
-//     public double getTotalPrice(int cartId);
-//     public Iterable<Product> getAllProductsInCart(int cartIdId);
+    // declare a method to remove product from cart
+    public Cart removeProductFromCart(int cartId,Product product);
+
+    // declare a method to update product quantity in cart
+    public Cart updateProductQuantity(int cartId,Product product,int quantity);
+
+
+    // declare a method for clear cart
+    public Cart clearCart(int cartId);
+
+
+    // declare a method to get total price of cart
+    public double getTotalPrice(int cartId);
+
     
 
-// }
+}

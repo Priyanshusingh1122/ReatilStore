@@ -30,6 +30,7 @@ public class Product {
     private String brand;
     private String rating;
     private String discount;
+    private Boolean inStock;
 
 
 }

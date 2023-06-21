@@ -26,14 +26,14 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private JwtToken jwtToken;
 
-    @Autowired
-     private CartRepo cartRepo; 
+    // @Autowired
+    //  private CartRepo cartRepo; 
 
     @Override
     public void registerUser(RetailUser user) {
 // register new user
       RetailUser userR =  userRepo.save(user);
-      cartRepo.save(new Cart());   
+    //   cartRepo.save(new Cart());   
         System.out.println(userR.toString());
     }
 
