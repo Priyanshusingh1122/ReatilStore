@@ -6,6 +6,9 @@ import com.stackroute.retail_store.model.Product;
 @Service
 public interface CartService {
 
+    // create a method to get cart by id
+    public Cart getCartById(int cartId);
+
     // create a method to add product to cart
     public Cart addProductToCart(int cartId,Product product);
 

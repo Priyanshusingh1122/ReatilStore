@@ -179,6 +179,25 @@ public class CartServiceImpl implements CartService {
             cartRepo.save(cart.get());
             return cart.get();
         }
+    }
+
+    @Override
+    public Cart getCartById(int cartId) {
+
+        // check if cart exits then return cart else return null
+        Optional<Cart> cart = cartRepo.findById(cartId);
+        if(cart.isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return cart.get();
+        }
+        
+        
+    
+    
     }   
     
 }

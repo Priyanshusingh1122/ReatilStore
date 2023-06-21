@@ -62,6 +62,18 @@ public class CartController {
         return cartService.getTotalPrice(cartId);
     }
 
+    // create end point for getting cart by id with url /api/v1/cart/{cartId} and use ResponseEntity for returning response
+    @GetMapping("/{cartId}")
+    ResponseEntity<Cart> getCartById(@PathVariable int cartId) {
+        // return ResponseEntity.ok(cartService.getCartById(cartId));
+        //  id cart is not found then return response with status code 404 with messge cart does not exist
+
+        Cart cart = cartService.getCartById(cartId);
+        if (cart == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(cart);
+    }
     
     
 }
