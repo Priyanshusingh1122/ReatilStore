@@ -2,7 +2,6 @@ package com.stackroute.retail_store.repository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import com.stackroute.retail_store.model.Product;
-
 import java.util.List;
 
 // Mark as Repository interface
@@ -12,37 +11,33 @@ import java.util.List;
 public interface Repo extends MongoRepository<Product, Integer> {
 
     // declare method for findByCategory
-    public List<Product> findByCategory(String category);
 
+   
 
-    // create a method for finding products in given price range with custom query
-    // write query to find products in given price range
+    public List<Product> findByBrandAndRating(String brand, String rating);
+    public List<Product> findByBrandAndDiscount(String brand, String discount);
+    
+    public List<Product> findByBrandAndPrice(String brand, int price);
+    public List<Product> findByRating(String rating);
 
+    public List<Product> findByDiscount(String discount);
+    public List<Product> findByCategoryAndBrand(String category, String brand);
 
-    // declare method for findByPriceBetween
-
-
-
+    public List<Product> findByCategoryAndRating(String category, String rating);
+    public List<Product> findByCategoryAndDiscount(String category, String discount);
+    
+    public List<Product> findByCategoryAndPrice(String category, int price);
     public List<Product> findByPriceBetween(int min, int max);
-
-
+    
     public List<Product> findByBrand(String brand);
+    public List<Product> findByCategory(String category);
+    
+    public List<Product> findByPrice(int price);
+    public List<Product> findByPriceGreaterThan(int price);
 
+    public List<Product> findByPriceLessThan(int price);
+    public List<Product> findByPriceGreaterThanEqual(int price);
 
-
-    // declare method for findByBrand
-// declare method for findByRating
-// declare method for findByDiscount
-// declare method for findByPrice
-// declare method for findByCategoryAndBrand
-// declare method for findByCategoryAndRating
-// declare method for findByCategoryAndDiscount
-// declare method for findByCategoryAndPrice
-// declare method for findByBrandAndRating
-// declare method for findByBrandAndDiscount
-// declare method for findByBrandAndPrice
-// declare method for findByRatingAndDiscount
-// declare method for findByRatingAndPrice
-
+    
 }
 
