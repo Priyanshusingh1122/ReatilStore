@@ -1,11 +1,8 @@
 package com.stackroute.retail_store.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import com.stackroute.retail_store.model.Login;
 import com.stackroute.retail_store.model.RetailUser;
 import com.stackroute.retail_store.service.UserService;
@@ -13,6 +10,7 @@ import com.stackroute.retail_store.service.UserService;
 // Create a User Controller class with end points for registering new user and login with email and password
 @RestController
 @RequestMapping("/api/v1/user")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     // autowire UserService
@@ -38,7 +36,7 @@ public class UserController {
     // }
 
      @PostMapping("/login")
-    public String login(@RequestBody Login login) {
+    public ResponseEntity<?> login(@RequestBody Login login) {
         // System.out.println(loemailId + " " + password);
 
         System.out.println(login.getEmail() + " " + login.getPassword());
