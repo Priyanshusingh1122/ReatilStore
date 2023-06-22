@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.stackroute.retail_store.model.Role;
 import com.stackroute.retail_store.model.Login;
 import com.stackroute.retail_store.model.RetailUser;
 import com.stackroute.retail_store.service.UserService;
