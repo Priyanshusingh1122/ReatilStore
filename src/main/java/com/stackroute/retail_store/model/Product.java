@@ -1,11 +1,10 @@
 package com.stackroute.retail_store.model;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Id;
 
 
 // Mark class as Data, Getter and Setter
@@ -21,7 +20,7 @@ public class Product {
     // and other fields as name, price, description, image url, category, brand, rating, discount
     // use lombok to generate getters and setters
 
-    @Id 
+    @Id
     private int id;
     private String name;
     private double price;

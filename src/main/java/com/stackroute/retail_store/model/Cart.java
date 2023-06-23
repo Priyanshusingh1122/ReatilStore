@@ -3,10 +3,11 @@ package com.stackroute.retail_store.model;
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
-import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.Id;
 
 @Data
 @Setter
