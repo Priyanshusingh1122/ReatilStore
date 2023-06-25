@@ -26,7 +26,7 @@ public class RetailUser {
 // and other fields as name, email, password, role, phone, address
 
         @Id
-        private UUID uid = UUID.randomUUID();
+        private String uid = String.valueOf(UUID.randomUUID());
         private Role role;
         private String name;
         @Indexed(unique = true)

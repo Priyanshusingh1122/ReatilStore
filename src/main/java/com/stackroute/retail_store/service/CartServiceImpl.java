@@ -175,7 +175,7 @@ public class CartServiceImpl implements CartService {
             }
             if(!flag)
             {
-                return null;
+                throw new RuntimeException("Product is not available in Cart");
             }
             cartRepo.save(cart.get());
             return cart.get();

@@ -2,6 +2,7 @@ package com.stackroute.retail_store.service;
 
 import java.util.Optional;
 
+import com.stackroute.retail_store.customExceptiom.UserNotFoundException;
 import com.stackroute.retail_store.model.JwtResponse;
 import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,16 +34,30 @@ public class UserServiceImpl implements UserService{
     //  private CartRepo cartRepo; 
 
     @Override
-    public RetailUser registerUser(RetailUser user) {
+    public RetailUser registerUser(RetailUser user) throws UserNotFoundException {
+//        check if user already exist with uid or emailId then throw UserAlreadyExistException with message "User already exists" else register the user
+        if(userRepo.findByEmailId(user.getEmailId()).size() != 0){
+            throw new UserNotFoundException("User already exists");
+        }
+        else{
+            RetailUser userR = userRepo.save(user);
+            return userR;
+        }
+
+
 // register new user
 
-      RetailUser userR ;
-      try{
-          userR = userRepo.save(user);
-      } catch (Exception e){
-        throw  new RuntimeException("User already exists");      }
-       System.out.println(userR.toString());
-      return userR;
+//      RetailUser userR ;
+//      try{
+//          userR = userRepo.save(user);
+//      } catch (Exception e){
+//        throw  new RuntimeException("User already exists");      }
+//       System.out.println(userR.toString());
+//      return userR;
+
+//
+
+
     }
 
     @Override

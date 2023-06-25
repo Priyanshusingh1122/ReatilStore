@@ -1,5 +1,6 @@
 package com.stackroute.retail_store.controller;
 
+import com.stackroute.retail_store.customExceptiom.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class UserController {
     // create end point for registering new user with url /api/v1/user/register
 
     @PostMapping("/register")
-    public RetailUser registerUser(@RequestBody RetailUser user) {
+    public RetailUser registerUser(@RequestBody RetailUser user) throws UserNotFoundException {
         // user.setRole(Role.user);
         System.out.println(user.toString());
         return userService.registerUser(user);
@@ -37,8 +38,6 @@ public class UserController {
 
      @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Login login) {
-        // System.out.println(loemailId + " " + password);
-
         System.out.println(login.getEmail() + " " + login.getPassword());
         return userService.login(login.getEmail(), login.getPassword());
     }

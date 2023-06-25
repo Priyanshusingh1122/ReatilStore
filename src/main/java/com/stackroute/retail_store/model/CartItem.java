@@ -11,7 +11,6 @@ import lombok.Setter;
 public class CartItem {
     
     // create a class CartItem with fields product and quantity
-
     private Product product;
     private int quantity;
 

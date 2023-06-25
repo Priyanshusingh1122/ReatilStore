@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.stackroute.retail_store.model.Cart;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.stereotype.Service;
 
 
 @DataMongoTest

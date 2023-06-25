@@ -1,6 +1,7 @@
 package com.stackroute.retail_store.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
@@ -17,5 +18,6 @@ public interface UserRepo extends MongoRepository<RetailUser, String>{
      List<RetailUser> findByEmailId(String emailId);
      List<RetailUser> findByName(String name);
 
-    
+
+    Optional<RetailUser> findByUid(String userId);
 }
