@@ -18,7 +18,7 @@ public class CartServiceImpl implements CartService {
     private CartRepo cartRepo; 
 
     @Override
-    public Cart addProductToCart(int cartId, Product product) {
+    public Cart addProductToCart(String cartId, Product product) {
 
         // check if product already exist in cart cartItems list then increase quantity
         // else add product to cartItems list 
@@ -77,7 +77,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public Cart clearCart(int cartId) {
+    public Cart clearCart(String cartId) {
     // check if cartExist then clear the cartItems list else return cart is already empty
     Optional<Cart> cart = cartRepo.findById(cartId);
     if(cart.isEmpty())
@@ -89,14 +89,15 @@ public class CartServiceImpl implements CartService {
         cart.get().getCartItems().clear();
         cartRepo.save(cart.get());
         return cart.get();
-    
+
+//        refactor the above code using ternary operator
     }
 
     // return null;
     }
 
     @Override
-    public double getTotalPrice(int cartId) {
+    public double getTotalPrice(String cartId) {
         //  fetch the cart detatails from cartRepo and calculate total price of cartItems list
         Optional<Cart> cart = cartRepo.findById(cartId);
         if(cart.isEmpty())
@@ -115,7 +116,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public Cart removeProductFromCart(int cartId, Product product) {
+    public Cart removeProductFromCart(String cartId, Product product) {
 
         // check if product exist in cartItems list then remove product from cartItems list
         // else return cart is empty
@@ -150,7 +151,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public Cart updateProductQuantity(int cartId, Product product, int quantity) {
+    public Cart updateProductQuantity(String cartId, Product product, int quantity) {
         // check if product exist in cartItems list then update product quantity
         // else return cart is empty
 
@@ -182,7 +183,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public Cart getCartById(int cartId) {
+    public Cart getCartById(String cartId) {
 
         // check if cart exits then return cart else return null
         Optional<Cart> cart = cartRepo.findById(cartId);
@@ -194,10 +195,7 @@ public class CartServiceImpl implements CartService {
         {
             return cart.get();
         }
-        
-        
-    
-    
+
     }   
     
 }

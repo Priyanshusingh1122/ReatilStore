@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Id;
+import java.util.UUID;
 
 /**
  * @author Priyanshu Singh
@@ -24,8 +25,8 @@ public class RetailUser {
 // create a data model for retail store users with spring boot id field
 // and other fields as name, email, password, role, phone, address
 
-      @Id
-        private int uid;
+        @Id
+        private UUID uid = UUID.randomUUID();
         private Role role;
         private String name;
         @Indexed(unique = true)

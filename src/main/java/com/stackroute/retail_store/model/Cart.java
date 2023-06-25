@@ -19,7 +19,7 @@ public class Cart {
     // create a cart model class with fields as id,list of products, total price
 
     @Id
-    private int id;
+    private String id;
     private List<CartItem> cartItems;
 
 

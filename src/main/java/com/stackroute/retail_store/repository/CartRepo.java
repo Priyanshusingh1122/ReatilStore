@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface CartRepo extends MongoRepository<Cart, Integer> {
+public interface CartRepo extends MongoRepository<Cart, String> {
 
     // declare method for findByCategory
     // public List<Product> findByCategory(String category);

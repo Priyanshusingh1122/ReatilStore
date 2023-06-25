@@ -21,10 +21,10 @@ public class UserController {
     // create end point for registering new user with url /api/v1/user/register
 
     @PostMapping("/register")
-    public void registerUser(@RequestBody RetailUser user) {
+    public RetailUser registerUser(@RequestBody RetailUser user) {
         // user.setRole(Role.user);
         System.out.println(user.toString());
-        userService.registerUser(user);
+        return userService.registerUser(user);
     }
 
     // create end point for login with email and password with url /api/v1/user/login

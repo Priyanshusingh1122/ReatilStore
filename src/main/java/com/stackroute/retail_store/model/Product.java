@@ -17,8 +17,7 @@ import javax.persistence.Id;
 public class Product {
     
     // create a data model for retail store products with spring boot id field
-    // and other fields as name, price, description, image url, category, brand, rating, discount
-    // use lombok to generate getters and setters
+    // and other fields as name, price, description, image url, category, brand, rating, inStock
 
     @Id
     private int id;
@@ -29,7 +28,6 @@ public class Product {
     private String category;
     private String brand;
     private String rating;
-    private String discount;
     private Boolean inStock;
 
 

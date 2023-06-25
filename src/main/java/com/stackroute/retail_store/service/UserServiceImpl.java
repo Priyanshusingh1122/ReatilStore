@@ -33,11 +33,16 @@ public class UserServiceImpl implements UserService{
     //  private CartRepo cartRepo; 
 
     @Override
-    public void registerUser(RetailUser user) {
+    public RetailUser registerUser(RetailUser user) {
 // register new user
-      RetailUser userR =  userRepo.save(user);
-    //   cartRepo.save(new Cart());   
-        System.out.println(userR.toString());
+
+      RetailUser userR ;
+      try{
+          userR = userRepo.save(user);
+      } catch (Exception e){
+        throw  new RuntimeException("User already exists");      }
+       System.out.println(userR.toString());
+      return userR;
     }
 
     @Override
@@ -58,8 +63,6 @@ public class UserServiceImpl implements UserService{
             return new ResponseEntity<>("Login Failed", HttpStatus.UNAUTHORIZED);
         } else {
             RetailUser user = userRepo.findByEmailId(email).get(0);
-            //   System.out.println(user.toString());
-
             if (user.getEmailId().equals(email) && user.getPassword().equals(password)) {
 
                 // if user exist then generta jwt tooken and return it by using response entity

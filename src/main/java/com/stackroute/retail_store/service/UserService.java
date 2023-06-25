@@ -10,7 +10,7 @@ public interface UserService {
     
 
     // declare method for registering new user
-    public void registerUser(RetailUser user);
+    public RetailUser registerUser(RetailUser user);
 
 
     // declare method for login with email and password

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.stackroute.retail_store.model.RetailUser;
 
 @Repository
-public interface UserRepo extends MongoRepository<RetailUser, Integer>{
+public interface UserRepo extends MongoRepository<RetailUser, String>{
 
     RetailUser findByEmailIdAndPassword(String email, String password);
 

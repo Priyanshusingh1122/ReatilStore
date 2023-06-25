@@ -15,17 +15,14 @@ public interface Repo extends MongoRepository<Product, Integer> {
    
 
     public List<Product> findByBrandAndRating(String brand, String rating);
-    public List<Product> findByBrandAndDiscount(String brand, String discount);
-    
+
     public List<Product> findByBrandAndPrice(String brand, int price);
     public List<Product> findByRating(String rating);
 
-    public List<Product> findByDiscount(String discount);
     public List<Product> findByCategoryAndBrand(String category, String brand);
 
     public List<Product> findByCategoryAndRating(String category, String rating);
-    public List<Product> findByCategoryAndDiscount(String category, String discount);
-    
+
     public List<Product> findByCategoryAndPrice(String category, int price);
     public List<Product> findByPriceBetween(int min, int max);
     
