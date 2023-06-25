@@ -70,6 +70,19 @@
 			<optional>true</optional>
 		</dependency>
 
+<!--		Swagger dependencies for documentation-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+<!--		springfox starter dependency-->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-boot-starter</artifactId>
